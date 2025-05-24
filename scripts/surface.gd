@@ -21,10 +21,8 @@ func _ready() -> void:
 	texture = surface_texture
 	
 func draw_blood(draw_pos : Vector2):
-	surface_image.lock() # must lock before drawing
 	#stamp the blood on to surface
 	surface_image.blit_rect(blood_image,Rect2(Vector2(0,0),Vector2(3,3)),draw_pos)
-	surface_image.unlock() # unlock the surface again
 	pass
 	
 func _physics_process(delta: float) -> void:

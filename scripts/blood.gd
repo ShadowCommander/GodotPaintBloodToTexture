@@ -18,8 +18,8 @@ var count  = 0
 func _physics_process(delta: float) -> void:
 	if(!is_colliding): # in the air
 		do_wobble = false
-		vspeed = lerp(vspeed,5,0.02)
-		hspeed = lerp(hspeed,0,0.02)
+		vspeed = lerp(vspeed,5.,0.02)
+		hspeed = lerp(hspeed,0.,0.02)
 		visible = true
 		
 	else: # touching platform
@@ -30,12 +30,12 @@ func _physics_process(delta: float) -> void:
 		if(count > max_count) : queue_free()
 		
 		#We make sure blood drop faster than 3, slowly reduce speed
-		if (vspeed > 3) : vspeed = 3
+		if (vspeed > 3) : vspeed = 3.
 		vspeed = lerp(vspeed,0.1,blood_acc)
 		
 		#If we're moving downwards in a line, add wobble
 		if(hspeed > 0.1 or hspeed < -0.1):
-			hspeed = lerp(hspeed,0,0.1)
+			hspeed = lerp(hspeed,0.,0.1)
 		else:
 			do_wobble = true
 
