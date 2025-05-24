@@ -9,9 +9,9 @@ var blood_image : Image = Image.new()
 
 func _ready() -> void:
 	#create our surface image and display it
-	surface_image.create(1500,1000,false,Image.FORMAT_RGBAH)
+	surface_image = Image.create_empty(1500,1000,false,Image.FORMAT_RGBAH)
 	surface_image.fill(Color(0,0,0,0))
-	surface_texture.create_from_image(surface_image)
+	surface_texture = ImageTexture.create_from_image(surface_image)
 	
 	#We do this once, instead of every single time in blood objects
 	blood_image.load("res://art/blood1.png")
@@ -27,7 +27,7 @@ func draw_blood(draw_pos : Vector2):
 	
 func _physics_process(delta: float) -> void:
 	#Update this surface here, instead of every blood call(better optimised
-	surface_texture.create_from_image(surface_image)
+	surface_texture.update(surface_image)
 	
 	#Reset the texture so it's empty again
 	if(Input.is_action_just_pressed("ui_accept")):
