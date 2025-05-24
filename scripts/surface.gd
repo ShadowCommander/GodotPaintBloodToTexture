@@ -4,7 +4,6 @@ class_name paint
 
 var surface_image : Image = Image.new()
 var surface_texture : ImageTexture = ImageTexture.new()
-var blood_texture : ImageTexture = ImageTexture.new()
 var blood_image : Image = Image.new()
 
 func _ready() -> void:
@@ -16,7 +15,6 @@ func _ready() -> void:
 	#We do this once, instead of every single time in blood objects
 	blood_image.load("res://art/blood1.png")
 	blood_image.convert(Image.FORMAT_RGBAH)
-	blood_texture.create_from_image(blood_image)
 	
 	texture = surface_texture
 	

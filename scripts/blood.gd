@@ -13,8 +13,6 @@ var do_wobble = false
 var max_count = randi_range(5,50)
 var count  = 0
 
-@onready var draw_surface : paint = $"/root/Surface"# get_node("/root/blood_scene/surface")
-
 func _physics_process(delta: float) -> void:
 	if(!is_colliding): # in the air
 		do_wobble = false
@@ -23,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		visible = true
 		
 	else: # touching platform
-		draw_surface.draw_blood(position) # draw blood to surface
+		Surface.draw_blood(position) # draw blood to surface
 		
 		#Count increase until max_count, then delete
 		count += 1
