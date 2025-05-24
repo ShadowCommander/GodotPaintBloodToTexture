@@ -1,6 +1,6 @@
 extends Node2D
 
-export(PackedScene) var blood : PackedScene
+@export var blood : PackedScene
 
 func _physics_process(delta: float) -> void:
 	if(Input.is_action_just_pressed("mb_left")):

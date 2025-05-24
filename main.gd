@@ -51,11 +51,10 @@ func do_bigfuckoffloop():
 	test_image.lock()
 	for i in range(200):
 		for j in range(200):
-			test_image.set_pixel(i,j,Color(rand_range(0,1),rand_range(0,1),rand_range(0,1),1))
+			test_image.set_pixel(i,j,Color(randf_range(0,1),randf_range(0,1),randf_range(0,1),1))
 			pass
 	update_image()
 		
 func update_image():
 	test_image.unlock()
 	imgtexture.create_from_image(test_image)
-

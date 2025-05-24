@@ -2,18 +2,18 @@ extends Area2D
 
 var is_colliding = false
 
-var vspeed = rand_range(-5,5)
-var hspeed = rand_range(-3,3)
+var vspeed = randf_range(-5,5)
+var hspeed = randf_range(-3,3)
 
-var blood_acc = rand_range(0.05,0.1)
+var blood_acc = randf_range(0.05,0.1)
 
 
 var do_wobble = false
 
-var max_count = rand_range(5,50)
+var max_count = randi_range(5,50)
 var count  = 0
 
-onready var draw_surface : paint = $"/root/Surface"# get_node("/root/blood_scene/surface")
+@onready var draw_surface : paint = $"/root/Surface"# get_node("/root/blood_scene/surface")
 
 func _physics_process(delta: float) -> void:
 	if(!is_colliding): # in the air
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		
 	#we add random wobble when moving downwards to avoid str8 lines
 	if(do_wobble):
-		hspeed += rand_range(-0.01,0.01)
+		hspeed += randf_range(-0.01,0.01)
 		hspeed = clamp(hspeed,-0.1,0.1)
 		
 	#update our position based on the vspeed and hspeed
