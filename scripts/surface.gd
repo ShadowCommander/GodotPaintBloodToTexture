@@ -13,14 +13,14 @@ func _ready() -> void:
 
 	# Create our surface image and display it
 	surface_image = Image.create_empty(1500, 1000, false, Image.FORMAT_RGBAH)
-	surface_image.fill(Color(0, 0, 0, 0))
+	surface_image.fill(Color(0.0, 0.0, 0.0, 0.0))
 	surface_texture = ImageTexture.create_from_image(surface_image)
 	
 	texture = surface_texture
 	
 func draw_blood(draw_pos: Vector2):
 	# Stamp the blood on to surface
-	surface_image.blit_rect(blood_image, Rect2(Vector2(0, 0), Vector2(2, 2)), draw_pos)
+	surface_image.blit_rect(blood_image, Rect2(0, 0, 2, 2), draw_pos)
 	
 func _physics_process(delta: float) -> void:
 	# Update this surface here, instead of every blood call(better optimised
