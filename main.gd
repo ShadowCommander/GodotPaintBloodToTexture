@@ -9,7 +9,7 @@ var funky : Image = Image.new()
 var xpos = 10
 var ypos = 10
 
-onready var pic : Sprite = $ico
+@onready var pic : Sprite2D = $ico
 
 func _ready() -> void:
 	test_image.create(32,32,false,Image.FORMAT_RGBAH)
